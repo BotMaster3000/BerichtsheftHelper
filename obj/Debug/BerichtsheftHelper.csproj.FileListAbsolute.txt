@@ -1,5 +1,4 @@
 C:\Users\BotMaster3000\Documents\Visual Studio 2015\Projects\_1 C# STUFF\BerichtsheftHelper\BerichtsheftHelper\bin\Debug\BerichtsheftHelper.exe.config
-C:\Users\BotMaster3000\Documents\Visual Studio 2015\Projects\_1 C# STUFF\BerichtsheftHelper\BerichtsheftHelper\obj\Debug\BerichtsheftHelper.csprojResolveAssemblyReference.cache
 C:\Users\BotMaster3000\Documents\Visual Studio 2015\Projects\_1 C# STUFF\BerichtsheftHelper\BerichtsheftHelper\obj\Debug\MainWindow.g.cs
 C:\Users\BotMaster3000\Documents\Visual Studio 2015\Projects\_1 C# STUFF\BerichtsheftHelper\BerichtsheftHelper\obj\Debug\App.g.cs
 C:\Users\BotMaster3000\Documents\Visual Studio 2015\Projects\_1 C# STUFF\BerichtsheftHelper\BerichtsheftHelper\obj\Debug\BerichtsheftHelper_MarkupCompile.cache
