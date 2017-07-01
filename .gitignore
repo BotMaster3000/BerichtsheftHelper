@@ -2,3 +2,8 @@
 *.pdb
 *.exe
  /bin/
+\bin\
+/obj/
+\obj\
+bin/
+obj/
