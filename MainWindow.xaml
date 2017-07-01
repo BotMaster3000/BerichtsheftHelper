@@ -1,0 +1,25 @@
+﻿<Window x:Class="BerichtsheftHelper.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BerichtsheftHelper"
+        mc:Ignorable="d"
+        Title="Berichtsheft-Helfer" Height="Auto" Width="Auto" MinWidth="500" SizeToContent="WidthAndHeight"
+        Closing="Window_Closing">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="txtBoxNameVorlage" Grid.Row="0" Grid.Column="0" Text="{Binding NameVorlage, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox x:Name="txtBoxDatumBeginn" Grid.Row="1" Grid.Column="0" Text="{Binding DatumBeginn, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox x:Name="txtBoxDatumEnde" Grid.Row="2" Grid.Column="0" Text="{Binding DatumEnde, UpdateSourceTrigger=PropertyChanged}"/>
+        <Button x:Name="btnErstellen" Grid.Row="0" Grid.Column="1" Grid.RowSpan="3" Content="Erstellen" Click="VerzeichnisseErstellen"/>
+    </Grid>
+</Window>
