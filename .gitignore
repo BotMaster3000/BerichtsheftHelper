@@ -1,9 +1,5 @@
 
 *.pdb
 *.exe
- /bin/
-\bin\
-/obj/
-\obj\
-bin/
-obj/
+obj/**
+obj/Debug/BerichtsheftHelper.csproj.FileListAbsolute.txt
