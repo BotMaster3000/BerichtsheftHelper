@@ -1,4 +1,4 @@
 
 *.pdb
 *.exe
- bin/**
+ bin\**
