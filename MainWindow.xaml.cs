@@ -32,7 +32,7 @@ namespace BerichtsheftHelper
         public string NameVorlage
         {
             get
-            {
+            { 
                 
                 if(nameVorlage == null)
                 {
