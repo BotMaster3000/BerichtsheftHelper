@@ -32,8 +32,7 @@ namespace BerichtsheftHelper
         public string NameVorlage
         {
             get
-            { 
-                
+            {
                 if(nameVorlage == null)
                 {
                     if(Properties.Settings.Default.NameVorlage != "")
@@ -43,7 +42,7 @@ namespace BerichtsheftHelper
                     else
                     {
                         nameVorlage = "Vorlage.docx";
-                    }                    
+                    }
                 }
                 return nameVorlage;
             }
@@ -55,6 +54,7 @@ namespace BerichtsheftHelper
                 }
             }
         }
+
         public string datumBeginn;
         public string DatumBeginn
         {
@@ -63,13 +63,13 @@ namespace BerichtsheftHelper
                 if(datumBeginn == null)
                 {
                     if (Properties.Settings.Default.DatumBeginn != "")
-                    {                        
+                    {
                         datumBeginn = Properties.Settings.Default.DatumBeginn;
                     }
                     else
                     {
                         datumBeginn = DateTime.Now.ToString("yyyy-MM-dd");
-                    }                    
+                    }
                 }
                 return datumBeginn;
             }
@@ -81,6 +81,7 @@ namespace BerichtsheftHelper
                 }
             }
         }
+
         private string datumEnde;
         public string DatumEnde
         {
@@ -96,7 +97,6 @@ namespace BerichtsheftHelper
                     {
                         datumEnde = DateTime.Now.ToString("yyyy-MM-dd");
                     }
-                    
                 }
                 return datumEnde;
             }
@@ -108,11 +108,12 @@ namespace BerichtsheftHelper
                 }
             }
         }
+
         private void ErstenTagDerWocheAuswaehlen(DateTime date, bool anfangDerWoche = true)
         {
             string wochentagName;
             int incrementor;
-            if(anfangDerWoche == true)
+            if(anfangDerWoche)
             {
                 wochentagName = "Monday";
                 incrementor = -1;
@@ -124,10 +125,11 @@ namespace BerichtsheftHelper
             }
 
             while(date.DayOfWeek.ToString() != wochentagName)
-            {                
+            {
                 date = date.AddDays(incrementor);
             }
-        }                
+        }
+
         private void VerzeichnisseErstellen(object sender, RoutedEventArgs e)
         {
             DateTime beginDate = DateTime.Parse(DatumBeginn);
@@ -159,7 +161,6 @@ namespace BerichtsheftHelper
                 MessageBox.Show(ex.ToString());
             }
 
-
             List<string> createdMonthDirs = new List<string>();
             try
             {
@@ -167,7 +168,6 @@ namespace BerichtsheftHelper
                 {
                     for (int month = 1; month <= 12; ++month)
                     {
-                        
                             string directoryPath = createdDir + @"\" + month + "_" + (new DateTime(2017, month, 1)).ToString("MMMM");
                             Directory.CreateDirectory(directoryPath);
                             createdMonthDirs.Add(directoryPath);
@@ -183,7 +183,7 @@ namespace BerichtsheftHelper
             foreach(string dir in createdMonthDirs)
             {
                 message += dir + "\n";
-            }       
+            }
             DateTime tmpDate = new DateTime(beginDate.Year, 1, 1);
             while (tmpDate.DayOfWeek.ToString() != "Monday")
             {
@@ -200,13 +200,13 @@ namespace BerichtsheftHelper
                     nextMonth = 1;
                 }
                 while(tmpDate.Month != nextMonth)
-                {                    
+                {
                     string filePath = createdDir + @"\" + tmpDate.ToString("dd.MM.-") + (tmpDate.AddDays(4).ToString("dd.MM.yyyy"));
                     string[] splits = NameVorlage.Split('.');
-                    string fileExtension = "." + splits[splits.Count() - 1];
+                    string fileExtension = "." + splits[splits.Length - 1];
                     try
                     {
-                        File.Copy(Environment.CurrentDirectory + @"\" + NameVorlage, filePath + fileExtension);                        
+                        File.Copy(Environment.CurrentDirectory + @"\" + NameVorlage, filePath + fileExtension);
                     }
                     catch (Exception ex)
                     {
@@ -214,14 +214,14 @@ namespace BerichtsheftHelper
                         return;
                     }
 
-                    if(!(tmpDate.AddDays(7).Month == nextMonth))
+                    if(tmpDate.AddDays(7).Month != nextMonth)
                     {
                         tmpDate = tmpDate.AddDays(7);
                     }
                     else
                     {
                         break;
-                    }                    
+                    }
                 }
                 while(tmpDate.Day > 1)
                 {
@@ -233,6 +233,7 @@ namespace BerichtsheftHelper
                 }
             }
         }
+
         private void Window_Closing(object sender, CancelEventArgs e)
         {
             try
